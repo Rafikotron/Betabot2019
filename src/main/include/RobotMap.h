@@ -31,6 +31,8 @@ constexpr int kJoystickY = 1;
 constexpr int kJoystickZ = 2;
 constexpr int kJoystickSlider = 3;
 
+constexpr int kCaptDist = 0;
+
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;
