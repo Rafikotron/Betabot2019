@@ -16,16 +16,20 @@ OI::OI() {
 
 double OI::GetXJoystick() 
 {
-  return mJoystickPtr->GetRawAxis(kJoystickX);
+  return mJoystickPtr->GetRawAxis(kJoystickX) * GetSlider();
 }
 
 double OI::GetYJoystick() 
 {
-  return -mJoystickPtr->GetRawAxis(kJoystickY);
+  return -mJoystickPtr->GetRawAxis(kJoystickY) * GetSlider();
 }
 
 double OI::GetZJoystick()
 {
-  return -mJoystickPtr->GetRawAxis(kJoystickZ);
+  return -mJoystickPtr->GetRawAxis(kJoystickZ) * GetSlider();
 }
 
+double OI::GetSlider()
+{
+  return (1-mJoystickPtr->GetRawAxis(kJoystickSlider))/2;
+}

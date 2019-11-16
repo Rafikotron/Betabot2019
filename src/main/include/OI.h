@@ -19,4 +19,5 @@ class OI {
   double GetXJoystick();
   double GetYJoystick();
   double GetZJoystick();
+  double GetSlider();
 };
