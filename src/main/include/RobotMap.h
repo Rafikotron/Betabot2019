@@ -16,6 +16,10 @@
 
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
+constexpr int kSolenoid0 = 0;
+constexpr int kSolenoid1 = 1;
+// solenoid0 est a la base, solenoid1 est au bout du piston
+
 constexpr int kMotorL1 = 1;
 constexpr int kMotorL2 = 2;
 constexpr int kMotorR1 = 3;
