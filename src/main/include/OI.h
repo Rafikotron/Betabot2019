@@ -7,15 +7,18 @@
 
 #pragma once
 #include <frc/Joystick.h>
+#include <frc/buttons/JoystickButton.h>
 #include <RobotMap.h>
 
 class OI {
  private:
   frc::Joystick * mJoystickPtr;
+  frc::JoystickButton * m1ButtonPtr;
   
 
  public:
   OI();
+  
   double GetXJoystick();
   double GetYJoystick();
   double GetZJoystick();

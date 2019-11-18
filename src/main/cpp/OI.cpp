@@ -8,10 +8,13 @@
 #include "OI.h"
 
 #include <frc/WPILib.h>
+#include <commands/PistonPulse.h>
 
 OI::OI() {
-   mJoystickPtr = new frc::Joystick(kJoystick);
-  // Process operator interface input here.
+  mJoystickPtr = new frc::Joystick(kJoystick);
+  m1ButtonPtr = new frc::JoystickButton(mJoystickPtr, k1Button);
+
+  m1ButtonPtr->WhenPressed(new PistonPulse());
 }
 
 double OI::GetXJoystick() 
