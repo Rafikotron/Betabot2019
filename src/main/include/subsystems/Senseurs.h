@@ -8,18 +8,25 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/interfaces/Gyro.h>
+#include <frc/ADXRS450_Gyro.h>
+#include <frc/BuiltInAccelerometer.h>
 #include <frc/AnalogInput.h>
 #include <RobotMap.h>
 
 class Senseurs : public frc::Subsystem {
  private:
  frc::AnalogInput* captDist;
+ frc::ADXRS450_Gyro* gyro;
+ frc::BuiltInAccelerometer* accelerometre;
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
  public:
   Senseurs();
-  double GetDist();
   void InitDefaultCommand() override;
+  void Calibrate();
+  double GetDist();
+  double GetGyro();
+  double GetAcceleroX();
+  double GetAcceleroY();
 };

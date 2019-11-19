@@ -9,7 +9,6 @@
 
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <iostream>
 
 ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
@@ -85,7 +84,6 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic()
 {
   frc::Scheduler::GetInstance()->Run();
-  std::cout<<m_senseurs.GetDist()<<std::endl;
 }
 
 void Robot::TestPeriodic() {}

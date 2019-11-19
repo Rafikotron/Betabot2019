@@ -9,6 +9,9 @@
 
 Senseurs::Senseurs() : Subsystem("Senseurs") {
   captDist = new frc::AnalogInput(kCaptDist);
+  gyro = new frc::ADXRS450_Gyro();
+  accelerometre = new frc::BuiltInAccelerometer();
+  gyro->Reset();
 }
 
 void Senseurs::InitDefaultCommand() {
@@ -16,9 +19,32 @@ void Senseurs::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void Senseurs::Calibrate()
+{
+  gyro->Calibrate();
+}
+
 double Senseurs::GetDist()
 {
   return captDist->GetVoltage();
+}
+
+double Senseurs::GetGyro()
+{
+  return gyro->GetAngle();
+  // angle par rapport au depart. negatif pour sens anti-horaire
+}
+
+double Senseurs::GetAcceleroX()
+{
+  return accelerometre->GetX();
+  // axe horizontal du roboRIO. negatif pour gauche(?)
+}
+
+double Senseurs::GetAcceleroY()
+{
+  return accelerometre->GetY();
+  // axe vertical du roboRIO. negatif pour bas(?)
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
