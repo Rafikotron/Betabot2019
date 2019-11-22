@@ -26,7 +26,7 @@ void Senseurs::Calibrate()
 
 double Senseurs::GetDist()
 {
-  return captDist->GetVoltage();
+  return captDist->GetVoltage()*VoltToFootDistCapt;
 }
 
 double Senseurs::GetGyro()
