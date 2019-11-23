@@ -20,10 +20,10 @@ constexpr int kSolenoid0 = 0;
 constexpr int kSolenoid1 = 1;
 // solenoid0 est a la base, solenoid1 est au bout du piston
 
-constexpr int kMotorL1 = 1;
+constexpr int kMotorL1 = 3;
 constexpr int kMotorL2 = 2;
-constexpr int kMotorR1 = 3;
-constexpr int kMotorR2 = 4;
+constexpr int kMotorR1 = 1;
+constexpr int kMotorR2 = 0;
 
 constexpr int kJoystick = 0;
 constexpr int kJoystickX = 0;
@@ -32,6 +32,7 @@ constexpr int kJoystickZ = 2;
 constexpr int kJoystickSlider = 3;
 
 constexpr int kCaptDist = 0;
+constexpr int kCaptDist2 = 1;
 constexpr double VoltToFootDistCapt = 3.5606;
 
 // If you are using multiple modules, make sure to define both the port

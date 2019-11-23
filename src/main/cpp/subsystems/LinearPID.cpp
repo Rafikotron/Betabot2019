@@ -12,7 +12,7 @@
 #include "Robot.h"
 
 LinearPID::LinearPID(double targetDist)
-    : PIDSubsystem("LinearPID", 1.0, 0.0, 0.0) {
+    : PIDSubsystem("LinearPID", 0.1, 0.1, 0.1) {
     SetSetpoint(targetDist);
     SetOutputRange(-0.8,0.8);
     SetAbsoluteTolerance(1);

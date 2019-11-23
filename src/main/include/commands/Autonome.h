@@ -9,6 +9,7 @@
 
 #include <frc/commands/CommandGroup.h>
 #include <commands/PistonPulse.h>
+#include <commands/Advance.h>
 
 
 class Autonome : public frc::CommandGroup {

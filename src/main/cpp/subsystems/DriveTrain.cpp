@@ -6,15 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/DriveTrain.h"
+#include <commands/MecanumDriveJoystick.h>
 
 DriveTrain::DriveTrain() : Subsystem("DriveTrain") {}
 
 void DriveTrain::Drive(double x, double y, double z)
 {
-    drive.DriveCartesian(y,x,z);
+    drive.DriveCartesian(x,y,z);
 }
 
 void DriveTrain::InitDefaultCommand() {
+  SetDefaultCommand(new MecanumDriveJoystick());
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
 }

@@ -16,6 +16,7 @@
 class Senseurs : public frc::Subsystem {
  private:
  frc::AnalogInput* captDist;
+ frc::AnalogInput* captDist2;
  frc::ADXRS450_Gyro* gyro;
  frc::BuiltInAccelerometer* accelerometre;
   // It's desirable that everything possible under private except
@@ -26,6 +27,7 @@ class Senseurs : public frc::Subsystem {
   void InitDefaultCommand() override;
   void Calibrate();
   double GetDist();
+  double GetDist2();
   double GetGyro();
   double GetAcceleroX();
   double GetAcceleroY();

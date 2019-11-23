@@ -62,6 +62,8 @@ void Robot::AutonomousInit() {
   //   m_autonomousCommand = &m_defaultAuto;
   // }
 
+  
+
   m_autonomousCommand = m_chooser.GetSelected();
 
   if (m_autonomousCommand != nullptr) {
@@ -84,7 +86,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic()
 {
-  std::cout<<m_senseurs.GetDist()<<std::endl;
+  std::cout<<m_senseurs.GetDist2()<<std::endl;
   frc::Scheduler::GetInstance()->Run();
 }
 

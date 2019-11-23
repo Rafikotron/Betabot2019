@@ -9,6 +9,7 @@
 
 Senseurs::Senseurs() : Subsystem("Senseurs") {
   captDist = new frc::AnalogInput(kCaptDist);
+  captDist2 = new frc::AnalogInput(kCaptDist2);
   gyro = new frc::ADXRS450_Gyro();
   accelerometre = new frc::BuiltInAccelerometer();
   gyro->Reset();
@@ -27,6 +28,11 @@ void Senseurs::Calibrate()
 double Senseurs::GetDist()
 {
   return captDist->GetVoltage()*VoltToFootDistCapt;
+}
+
+double Senseurs::GetDist2()
+{
+  return captDist2->GetVoltage()*VoltToFootDistCapt;
 }
 
 double Senseurs::GetGyro()

@@ -8,7 +8,21 @@
 #include "commands/Autonome.h"
 
 Autonome::Autonome() {
+  AddSequential(new Advance(1));
   AddSequential(new PistonPulse());
+  AddSequential(new Advance(6));
+  //AddSequential(new Advance());
+
+  //Advance::Initialize();
+  //PistonPulse::Initialize();
+
+  //Advance::Execute();
+
+  //if(Advance::IsFinished())
+  //{
+    //PistonPulse::Execute();
+  //}
+
   // Add Commands here:
   // e.g. AddSequential(new Command1());
   //      AddSequential(new Command2());

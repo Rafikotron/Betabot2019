@@ -27,6 +27,8 @@ class Robot : public frc::TimedRobot {
   static Piston m_piston;
   static Senseurs m_senseurs;
 
+  
+
   void RobotInit() override;
   void RobotPeriodic() override;
   void DisabledInit() override;

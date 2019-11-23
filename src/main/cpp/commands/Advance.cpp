@@ -22,11 +22,11 @@ void Advance::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void Advance::Execute() {
   wPower = mPIDptr->ReturnPIDOutput();
-  Robot::m_driveTrain.Drive(0,wPower,0);
+  Robot::m_driveTrain.Drive(0,-wPower*0.25,0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Advance::IsFinished() { return false; }
+bool Advance::IsFinished() { return mPIDptr->OnTarget(); }
 
 // Called once after isFinished returns true
 void Advance::End() {}
