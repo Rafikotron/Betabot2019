@@ -19,6 +19,10 @@
 #include <subsystems/Piston.h>
 #include <subsystems/Senseurs.h>
 
+#include <frc/Preferences.h>
+
+#include <commands/Autonome.h>
+
 class Robot : public frc::TimedRobot {
  public:
   static ExampleSubsystem m_subsystem;
@@ -27,7 +31,7 @@ class Robot : public frc::TimedRobot {
   static Piston m_piston;
   static Senseurs m_senseurs;
 
-  
+  static bool wallLeft;
 
   void RobotInit() override;
   void RobotPeriodic() override;
@@ -43,7 +47,8 @@ class Robot : public frc::TimedRobot {
   // Have it null by default so that if testing teleop it
   // doesn't have undefined behavior and potentially crash.
   frc::Command* m_autonomousCommand = nullptr;
-  ExampleCommand m_defaultAuto;
+  Autonome m_defaultAuto;
   MyAutoCommand m_myAuto;
   frc::SendableChooser<frc::Command*> m_chooser;
+  frc::Preferences* prefs;
 };

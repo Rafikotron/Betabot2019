@@ -17,6 +17,8 @@ DriveTrain Robot::m_driveTrain;
 Piston Robot::m_piston;
 Senseurs Robot::m_senseurs;
 
+bool Robot::wallLeft;
+
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);
@@ -31,7 +33,10 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+  prefs = frc::Preferences::GetInstance();
+  wallLeft = prefs->GetBoolean("wallLeft", false);
+}
 
 /**
  * This function is called once each time the robot enters Disabled mode. You
@@ -86,7 +91,6 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic()
 {
-  std::cout<<m_senseurs.GetDist2()<<std::endl;
   frc::Scheduler::GetInstance()->Run();
 }
 

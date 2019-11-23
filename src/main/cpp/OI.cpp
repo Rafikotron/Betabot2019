@@ -8,6 +8,8 @@
 #include "OI.h"
 #include <commands/Autonome.h>
 #include <commands/Advance.h>
+#include <commands/ToggleTurn.h>
+#include <commands/PistonPulse.h>
 #include <Robot.h>
 #include <algorithm>
 
@@ -15,16 +17,27 @@
 
 OI::OI() {
    mJoystickPtr = new frc::Joystick(kJoystick);
-   m1ButtonPtr = new frc::JoystickButton(mJoystickPtr, 1);
-   m1ButtonPtr->WhenPressed(new Autonome());
+   m1ButtonPtr = new frc::JoystickButton(mJoystickPtr, kJoystickButton1);
+   // m1ButtonPtr->WhenPressed(new Autonome());
+   m1ButtonPtr->WhenPressed(new PistonPulse());
    canTurn = true;
+
+   m2ButtonPtr = new frc::JoystickButton(mJoystickPtr, kJoystickButton2);
+   m2ButtonPtr->WhenPressed(new ToggleTurn());
   // Process operator interface input here.
 }
 
 double OI::GetXJoystick() 
 {if (Robot::m_senseurs.GetDist2()<2)
   {
-    return  std::min(double(mJoystickPtr->GetRawAxis(kJoystickX) * GetSlider()),0.0);
+    if (Robot::wallLeft)
+    {
+      return std::max(double(mJoystickPtr->GetRawAxis(kJoystickX) * GetSlider()),0.0);
+    }
+    else
+    {
+      return std::min(double(mJoystickPtr->GetRawAxis(kJoystickX) * GetSlider()),0.0);
+    }
   }
   else
   {
@@ -34,9 +47,10 @@ double OI::GetXJoystick()
 
 double OI::GetYJoystick() 
 {
+  // a voir la sensibilite
   if (Robot::m_senseurs.GetDist()<2)
   {
-    return  std::min(double(-mJoystickPtr->GetRawAxis(kJoystickY) * GetSlider()),0.0);
+    return std::min(double(-mJoystickPtr->GetRawAxis(kJoystickY) * GetSlider()),0.0);
   }
   else
   {
@@ -59,4 +73,9 @@ double OI::GetZJoystick()
 double OI::GetSlider()
 {
   return (1-mJoystickPtr->GetRawAxis(kJoystickSlider))/2;
+}
+
+void OI::OIToggleTurn()
+{
+  canTurn = !canTurn;
 }

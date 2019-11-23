@@ -14,6 +14,7 @@ class OI {
  private:
   frc::Joystick * mJoystickPtr;
   frc::JoystickButton* m1ButtonPtr;
+  frc::JoystickButton* m2ButtonPtr;
   bool canTurn;
   
 
@@ -23,4 +24,5 @@ class OI {
   double GetYJoystick();
   double GetZJoystick();
   double GetSlider();
+  void OIToggleTurn();
 };

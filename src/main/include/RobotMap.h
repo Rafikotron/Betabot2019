@@ -30,6 +30,8 @@ constexpr int kJoystickX = 0;
 constexpr int kJoystickY = 1;
 constexpr int kJoystickZ = 2;
 constexpr int kJoystickSlider = 3;
+constexpr int kJoystickButton1 = 0;
+constexpr int kJoystickButton2 = 1;
 
 constexpr int kCaptDist = 0;
 constexpr int kCaptDist2 = 1;
