@@ -28,7 +28,8 @@ OI::OI() {
 }
 
 double OI::GetXJoystick() 
-{if (Robot::m_senseurs.GetDist2()<2)
+{// if (Robot::m_senseurs.GetDist2()<2)
+if (false)
   {
     if (Robot::wallLeft)
     {
@@ -48,7 +49,9 @@ double OI::GetXJoystick()
 double OI::GetYJoystick() 
 {
   // a voir la sensibilite
-  if (Robot::m_senseurs.GetDist()<2)
+  
+  if (false)
+  // if (Robot::m_senseurs.GetDist()<2)
   {
     return std::min(double(-mJoystickPtr->GetRawAxis(kJoystickY) * GetSlider()),0.0);
   }

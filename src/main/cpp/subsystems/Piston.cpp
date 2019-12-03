@@ -12,6 +12,8 @@ Piston::Piston() : Subsystem("Piston")
   // solenoid0 est a la base, solenoid1 est au bout du piston
   solenoid0 = new frc::Solenoid(kSolenoid0);
   solenoid1 = new frc::Solenoid(kSolenoid1);
+  solenoid0->Set(false);
+  solenoid1->Set(true);
 }
 
 void Piston::InitDefaultCommand() {

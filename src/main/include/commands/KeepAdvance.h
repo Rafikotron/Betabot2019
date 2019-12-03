@@ -5,13 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/Autonome.h"
+#pragma once
 
-Autonome::Autonome() {
-  // AddSequential(new Advance(1));
-  AddSequential(new KeepAdvance());
-  AddSequential(new Wait(1.0));
-  AddSequential(new PistonPulse());
-  AddSequential(new Advance(6));
-  // En vrai compet : new Advance(8);
-}
+#include <frc/commands/Command.h>
+
+class KeepAdvance : public frc::Command {
+ public:
+  KeepAdvance();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

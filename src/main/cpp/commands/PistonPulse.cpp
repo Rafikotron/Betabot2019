@@ -9,7 +9,7 @@
 
 PistonPulse::PistonPulse() {
   AddSequential(new PistonToggle());
-  AddSequential(new Wait(1.0));
+  AddSequential(new Wait(3.0));
   AddSequential(new PistonToggle());
   // Add Commands here:
   // e.g. AddSequential(new Command1());

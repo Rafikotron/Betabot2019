@@ -10,6 +10,8 @@
 #include <frc/commands/CommandGroup.h>
 #include <commands/PistonPulse.h>
 #include <commands/Advance.h>
+#include <commands/Wait.h>
+#include <commands/KeepAdvance.h>
 
 
 class Autonome : public frc::CommandGroup {

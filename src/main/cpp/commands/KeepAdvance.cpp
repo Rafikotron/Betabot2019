@@ -5,32 +5,30 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/PistonToggle.h"
-#include "Robot.h"
+#include "commands/KeepAdvance.h"
+#include <Robot.h>
 
-PistonToggle::PistonToggle()
-{
-  Requires(&Robot::m_piston);
+KeepAdvance::KeepAdvance() {
+  Requires(&Robot::m_driveTrain);
+  SetTimeout(3.5);
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void PistonToggle::Initialize()
-{
-}
+void KeepAdvance::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void PistonToggle::Execute() {
-  Robot::m_piston.Toggle();
+void KeepAdvance::Execute() {
+  Robot::m_driveTrain.Drive(0,0.25,0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool PistonToggle::IsFinished() { return true; }
+bool KeepAdvance::IsFinished() { return IsTimedOut(); }
 
 // Called once after isFinished returns true
-void PistonToggle::End() {}
+void KeepAdvance::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PistonToggle::Interrupted() {}
+void KeepAdvance::Interrupted() {}

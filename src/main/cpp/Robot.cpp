@@ -87,6 +87,7 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
+  m_piston.SetInactive();
 }
 
 void Robot::TeleopPeriodic()
