@@ -12,10 +12,10 @@
 #include <frc/drive/MecanumDrive.h>
 #include <frc/Spark.h>
 #include <frc/Talon.h>
-
+//création de la classe drive train et des moteurs et leurs types
 class DriveTrain : public frc::Subsystem {
  private:
-  // 1 est a l'avant, 2 est a l'arriere
+  // 1 est a l'avant, 2 est a l'arriere tout est pris du .h
   frc::Spark motorL1{kMotorL1};
   frc::Talon motorL2{kMotorL2};
   frc::Talon motorR1{kMotorR1};
@@ -23,9 +23,8 @@ class DriveTrain : public frc::Subsystem {
   
   // frc::Spark motorL1{kMotorL1};
   // frc::Talon motorL2{10};
-  // frc::Talon motorR1{10};
-  // frc::Talon motorR2{10};  
-
+   // frc::Talon motorR1{10};
+   // frc::Talon motorR2{10};  
   frc::MecanumDrive drive{motorL1, motorL2, motorR1, motorR2};
 
  public:
